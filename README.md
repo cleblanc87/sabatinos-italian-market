@@ -42,6 +42,17 @@ GitHub redirects `www` to the apex automatically once both are in place. After
 DNS resolves, GitHub provisions a Let's Encrypt certificate — usually minutes —
 and **Enforce HTTPS** in Settings → Pages becomes available. Tick it.
 
+### Turning the custom domain off and on
+
+```sh
+scripts/custom-domain.sh status        # which mode the files are in, and what Pages has live
+scripts/custom-domain.sh off           # drop CNAME, point URLs at cleblanc87.github.io/…
+scripts/custom-domain.sh on            # restore CNAME and the sabatinositalianmarket.com URLs
+```
+
+Add `--push` to commit and push to `main` in one step. Without it the change is
+left in the working tree for review. Registrar DNS records are not touched.
+
 ### Changing domain again
 
 The domain appears in the `canonical` and `og:url` tags of all seven pages, in
