@@ -14,32 +14,53 @@ python3 -m http.server 8000
 
 ## Live site
 
-<https://cleblanc87.github.io/sabatinos-italian-market/>
+<https://sabatinositalianmarket.com/>
 
 Served by GitHub Pages from `main` at the repository root. Pushing to `main`
 redeploys; a build takes about a minute.
+
+The `CNAME` file at the repository root is what binds the domain. **Do not
+delete it** — if it disappears from `main`, GitHub unsets the custom domain and
+the site reverts to `cleblanc87.github.io/sabatinos-italian-market/`.
+
+### DNS
+
+The apex domain is canonical. At the registrar:
+
+| Type  | Name  | Value                     |
+|-------|-------|---------------------------|
+| A     | `@`   | `185.199.108.153`         |
+| A     | `@`   | `185.199.109.153`         |
+| A     | `@`   | `185.199.110.153`         |
+| A     | `@`   | `185.199.111.153`         |
+| CNAME | `www` | `cleblanc87.github.io.`   |
+
+Optionally add AAAA records on `@` for IPv6: `2606:50c0:8000::153` through
+`2606:50c0:8003::153`.
+
+GitHub redirects `www` to the apex automatically once both are in place. After
+DNS resolves, GitHub provisions a Let's Encrypt certificate — usually minutes —
+and **Enforce HTTPS** in Settings → Pages becomes available. Tick it.
+
+### Changing domain again
+
+The domain appears in the `canonical` and `og:url` tags of all seven pages, in
+the two JSON-LD blocks (`index.html`, `contact.html`), and in `sitemap.xml` and
+`robots.txt`. To move it:
+
+```sh
+printf 'newdomain.com\n' > CNAME
+grep -rl "sabatinositalianmarket.com" *.html *.xml *.txt \
+  | xargs sed -i '' 's|https://sabatinositalianmarket.com|https://newdomain.com|g'
+```
+
+Note that the contact email addresses also contain the domain, so check the
+`mailto:` links and JSON-LD `email` fields afterwards.
 
 ## Deploying
 
 Upload the whole folder. Any static host works — Netlify, Vercel, Cloudflare
 Pages, GitHub Pages, or plain S3. There is nothing to compile.
-
-### Moving to a custom domain
-
-The site currently refers to itself by its GitHub Pages URL. Once
-`sabatinositalianmarket.com` (or whatever domain you settle on) is registered:
-
-1. Add a `CNAME` file at the repository root containing the bare domain.
-2. Point the domain's DNS at GitHub Pages, and enable HTTPS in Settings → Pages.
-3. Replace `https://cleblanc87.github.io/sabatinos-italian-market` throughout —
-   it appears in the `canonical` and `og:url` tags of all seven pages, in the
-   two JSON-LD blocks (`index.html`, `contact.html`), and in `sitemap.xml` and
-   `robots.txt`:
-
-   ```sh
-   grep -rl "cleblanc87.github.io/sabatinos-italian-market" . \
-     | xargs sed -i '' 's|https://cleblanc87.github.io/sabatinos-italian-market|https://www.yourdomain.com|g'
-   ```
 
 ---
 
@@ -51,8 +72,10 @@ Everything below is a placeholder. Each one is marked in the source with a
 - [ ] **Formspree form ID** — `js/main.js`, the `FORMSPREE_ID` constant.
       See "Making the forms live" below. Until this is set, both forms validate
       normally and then show the visitor the email address instead.
-- [ ] **Email addresses** — `hello@` and `trade@sabatinositalianmarket.com`.
-      Appear in `js/main.js` (`CONTACT_EMAIL`), `contact.html`, the footer of
+- [ ] **Email mailboxes** — `hello@` and `trade@sabatinositalianmarket.com`.
+      The domain is now yours, so these addresses are the right ones; they just
+      need mailboxes or forwarding set up at your registrar or mail host. They
+      appear in `js/main.js` (`CONTACT_EMAIL`), `contact.html`, the footer of
       every page, and the JSON-LD in `index.html` and `contact.html`.
 - [ ] **Telephone** — `(617) 555-0142`. Footer, `contact.html`, `wholesale.html`,
       and both JSON-LD blocks. Update the `tel:` href as well as the visible text.

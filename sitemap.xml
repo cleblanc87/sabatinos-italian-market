@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- TODO: replace the domain below with your live domain once registered. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://cleblanc87.github.io/sabatinos-italian-market/</loc><priority>1.0</priority></url>
-  <url><loc>https://cleblanc87.github.io/sabatinos-italian-market/collections.html</loc><priority>0.9</priority></url>
-  <url><loc>https://cleblanc87.github.io/sabatinos-italian-market/sourcing.html</loc><priority>0.9</priority></url>
-  <url><loc>https://cleblanc87.github.io/sabatinos-italian-market/our-story.html</loc><priority>0.8</priority></url>
-  <url><loc>https://cleblanc87.github.io/sabatinos-italian-market/wholesale.html</loc><priority>0.8</priority></url>
-  <url><loc>https://cleblanc87.github.io/sabatinos-italian-market/contact.html</loc><priority>0.7</priority></url>
+  <url><loc>https://sabatinositalianmarket.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://sabatinositalianmarket.com/collections.html</loc><priority>0.9</priority></url>
+  <url><loc>https://sabatinositalianmarket.com/sourcing.html</loc><priority>0.9</priority></url>
+  <url><loc>https://sabatinositalianmarket.com/our-story.html</loc><priority>0.8</priority></url>
+  <url><loc>https://sabatinositalianmarket.com/wholesale.html</loc><priority>0.8</priority></url>
+  <url><loc>https://sabatinositalianmarket.com/contact.html</loc><priority>0.7</priority></url>
 </urlset>

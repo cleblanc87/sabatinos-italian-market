@@ -3,3 +3,6 @@
 .vscode/
 .idea/
 Thumbs.db
+
+# Claude Code session scratch (worktrees, local state)
+.claude/
