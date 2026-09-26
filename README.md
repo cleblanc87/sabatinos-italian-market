@@ -12,14 +12,34 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
+## Live site
+
+<https://cleblanc87.github.io/sabatinos-italian-market/>
+
+Served by GitHub Pages from `main` at the repository root. Pushing to `main`
+redeploys; a build takes about a minute.
+
 ## Deploying
 
 Upload the whole folder. Any static host works — Netlify, Vercel, Cloudflare
 Pages, GitHub Pages, or plain S3. There is nothing to compile.
 
-Two files reference the live domain and should be updated once it is registered:
-`sitemap.xml` and `robots.txt`, plus the `canonical` and `og:url` tags in the
-`<head>` of each page.
+### Moving to a custom domain
+
+The site currently refers to itself by its GitHub Pages URL. Once
+`sabatinositalianmarket.com` (or whatever domain you settle on) is registered:
+
+1. Add a `CNAME` file at the repository root containing the bare domain.
+2. Point the domain's DNS at GitHub Pages, and enable HTTPS in Settings → Pages.
+3. Replace `https://cleblanc87.github.io/sabatinos-italian-market` throughout —
+   it appears in the `canonical` and `og:url` tags of all seven pages, in the
+   two JSON-LD blocks (`index.html`, `contact.html`), and in `sitemap.xml` and
+   `robots.txt`:
+
+   ```sh
+   grep -rl "cleblanc87.github.io/sabatinos-italian-market" . \
+     | xargs sed -i '' 's|https://cleblanc87.github.io/sabatinos-italian-market|https://www.yourdomain.com|g'
+   ```
 
 ---
 
