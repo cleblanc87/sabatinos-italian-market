@@ -54,7 +54,7 @@ Everything below is a placeholder. Each one is marked in the source with a
 - [ ] **Email addresses** — `hello@` and `trade@sabatinositalianmarket.com`.
       Appear in `js/main.js` (`CONTACT_EMAIL`), `contact.html`, the footer of
       every page, and the JSON-LD in `index.html` and `contact.html`.
-- [ ] **Telephone** — `(617) 555-0142`. Footer, `contact.html`, `wholesale.html`,
+- [x] **Telephone** — `(970) 306-8153`. Footer, `contact.html`, `wholesale.html`,
       and both JSON-LD blocks. Update the `tel:` href as well as the visible text.
 - [ ] **Street address** — `144 Prince Street, Boston MA 02113`. `contact.html`
       and both JSON-LD blocks.
