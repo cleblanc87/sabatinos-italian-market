@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sabatinositalianmarket.com/sitemap.xml
+Sitemap: https://cleblanc87.github.io/sabatinos-italian-market/sitemap.xml
