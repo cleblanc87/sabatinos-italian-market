@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sabatino's Italian Market">
+  <rect width="64" height="64" rx="8" fill="#1C2B22"/>
+  <path d="M32 9 51 15v19c0 11-8 17.5-19 21-11-3.5-19-10-19-21V15L32 9Z" fill="none" stroke="#B08D4F" stroke-width="2.5"/>
+  <path d="M38.5 24c-1.2-2.6-3.6-4-6.9-4-4.2 0-6.8 2.1-6.8 5.2 0 2.9 2.1 4.4 6.6 5.4 4.9 1.1 7.4 2.9 7.4 6.5 0 3.9-3.2 6.4-8 6.4-4 0-7-1.7-8.3-4.7" fill="none" stroke="#D4B776" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
